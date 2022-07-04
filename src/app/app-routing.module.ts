@@ -8,9 +8,7 @@ import { MypuppiesComponent } from './components/pages/mypuppies/mypuppies.compo
 import { HomeOneComponent } from './components/pages/home-one/home-one.component';
 import { HomeThreeComponent } from './components/pages/home-three/home-three.component';
 import { HomeTwoComponent } from './components/pages/home-two/home-two.component';
-import { JobsComponent } from './components/pages/jobs/jobs.component';
 import { LoginComponent } from './components/pages/login/login.component';
-import { PostAJobComponent } from './components/pages/post-a-job/post-a-job.component';
 import { MessageComponent } from './components/pages/message/message.component';
 import { RegisterComponent } from './components/pages/register/register.component';
 import { ResumeDetailsComponent } from './components/pages/resume-details/resume-details.component';
@@ -39,8 +37,6 @@ const routes: Routes = [
             {path: 'mypuppies', component: MypuppiesComponent},
             {path: 'coming-soon', component: ComingSoonComponent},
             {path: 'error', component: ErrorComponent},
-            {path: 'jobs', component: JobsComponent},
-            {path: 'post-a-job', component: PostAJobComponent},
             {path: 'puppy-list', component: PuppyListComponent},
             {path: 'puppy-list/:username', component: PuppyDetailsComponent}
         ]

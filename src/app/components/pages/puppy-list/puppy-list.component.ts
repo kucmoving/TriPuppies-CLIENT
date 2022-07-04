@@ -6,7 +6,7 @@ import { PuppiesService } from 'src/app/_service/puppies.service';
 import {take} from 'rxjs/operators'
 import { UserParams } from 'src/app/_models/userParams';
 import { User } from 'src/app/_models/user';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-puppy-list',
@@ -15,6 +15,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PuppyListComponent implements OnInit {
   puppies : Puppy[];
+  @Output() Puppies;
   pagination: Pagination;
   userParams : UserParams;
   user: User;

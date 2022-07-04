@@ -4,4 +4,5 @@ export interface User{
   photoUrl: string;
   role: string;
   experience: number;
+  gender: string;
 }

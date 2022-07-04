@@ -11,15 +11,16 @@
                     <h2>FAQ</h2>
                     <ul>
                         <li>
-                            <img src="assets/img/home-three/title-img-two.png" alt="Image">
+                            <img
+                                src="assets/img/home-three/title-img-two.png"
+                                alt="Image"
+                            />
                             <a href="index.html">Home</a>
                         </li>
                         <li>
                             <span>/</span>
                         </li>
-                        <li>
-                            FAQ
-                        </li>
+                        <li>FAQ</li>
                     </ul>
                 </div>
             </div>
@@ -29,55 +30,89 @@
 <!-- End Page Title -->
 
 <!-- FAQ -->
-<div class="faq-area ptb-100">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-12">
-                <div class="faq-content">
-                    <ul class="accordion">
-                        <li>
-                            <a>What's your ideal about company?</a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quaerat natus, enim nobis perspiciatis iste possimus nemo doloremque tempore deleniti fugit? In delectus, accusantium facilis quae saepe commodi ipsum fuga.</p>
-                        </li>
-                        <li>
-                            <a>Why should we hire you?</a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quaerat natus, enim nobis perspiciatis iste possimus nemo doloremque tempore deleniti fugit? In delectus, accusantium facilis quae saepe commodi ipsum fuga.</p>
-                        </li>
-                        <li>
-                            <a>What do we serve from our company?</a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quaerat natus, enim nobis perspiciatis iste possimus nemo doloremque tempore deleniti fugit? In delectus, accusantium facilis quae saepe commodi ipsum fuga.</p>
-                        </li>
-                        <li>
-                            <a>Why do you want to work here?</a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quaerat natus, enim nobis perspiciatis iste possimus nemo doloremque tempore deleniti fugit? In delectus, accusantium facilis quae saepe commodi ipsum fuga.</p>
-                        </li>
-                        <li>
-                            <a>When will you be most satisfied in our job?</a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quaerat natus, enim nobis perspiciatis iste possimus nemo doloremque tempore deleniti fugit? In delectus, accusantium facilis quae saepe commodi ipsum fuga.</p>
-                        </li>
-                        <li>
-                            <a>What attracted me to this company?</a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quaerat natus, enim nobis perspiciatis iste possimus nemo doloremque tempore deleniti fugit? In delectus, accusantium facilis quae saepe commodi ipsum fuga.</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
 
-            <div class="col-lg-6 col-md-12">
-                <div class="faq-img">
-                    <img src="assets/img/faq-main.jpg" alt="FAQ">
-                </div>
-            </div>
-        </div>
-
-        <div class="faq-bottom">
-            <h3>If you don't find your questions or need help</h3>
-            <a routerLink="/contact">Contact Us</a>
+<div class="text-center mt-3">
+    <h2>
+        {{
+            predicate === "following"
+                ? "Puppies I follow"
+                : "Puppies who follow me"
+        }}
+    </h2>
+</div>
+<div class="container mt-3">
+    <div class="d-flex">
+        <div class="btn-group" name="predicate">
+            <button
+                class="btn btn-primary"
+                btnRadio="following"
+                ngDefaultControl
+                [(ngModel)]="predicate"
+                (click)="loadFollow()"
+            >
+                Puppies I follow
+            </button>
+            <button
+                class="btn btn-danger"
+                btnRadio="followedBy"
+                ngDefaultControl
+                [(ngModel)]="predicate"
+                (click)="loadFollow()"
+            >
+                Puppies follow me
+            </button>
         </div>
     </div>
-</div>
-<!-- End FAQ -->
 
-<!-- Footer -->
-<app-footer-style-two></app-footer-style-two>
-<!-- End Footer -->
+    <div class="candidate-area pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6" *ngFor="let puppy of puppies">
+                    <div class="candidate-item two">
+                        <div class="left">
+                            <h4>
+                                <a routerLink="/candidate-details">{{
+                                    puppy.nickName
+                                }}</a>
+                            </h4>
+                            <h4>{{ puppy.nickname }}</h4>
+                            <ul class="experience">
+                                <li>
+                                    Gender: <span>{{ puppy.gender }}</span>
+                                </li>
+                                <li>
+                                    Role: <span>{{ puppy.role }}</span>
+                                </li>
+                                <li>
+                                    Style: <span>{{ puppy.preferStyle }}</span>
+                                </li>
+                                <li>
+                                    Experience:
+                                    <span>{{ puppy.experience }} years</span>
+                                </li>
+
+                                <li>
+                                    <i class="flaticon-send"></i>
+                                    {{ puppy.region }}
+                                </li>
+                            </ul>
+                            <div class="cmn-link">
+                                <a routerLink="/single-resume"
+                                    ><i class="flaticon-right-arrow one"></i>
+                                    View Resume
+                                    <i class="flaticon-right-arrow two"></i
+                                ></a>
+                            </div>
+                        </div>
+                        <img
+                            src="{{ puppy.photoUrl }}"
+                            alt="{{ puppy.nickName }}"
+                        />
+                    </div>
+
+    <!-- End FAQ -->
+
+    <!-- Footer -->
+    <app-footer-style-two></app-footer-style-two>
+    <!-- End Footer -->
+</div>

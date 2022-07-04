@@ -69,10 +69,10 @@ export class PuppiesService {
   }
 
   getFollow(predicate: string){          //string query = "?="
-    return this.http.get(this.baseUrl + 'follow?=' + predicate);
+    return this.http.get<Partial<Puppy[]>>(this.baseUrl + 'Follow?predicate=' + predicate);
   }
 }
-
+//https://localhost:7141/api/Follow?predicate=following
 
 
 
