@@ -9,13 +9,13 @@ import { HomeOneComponent } from './components/pages/home-one/home-one.component
 import { HomeThreeComponent } from './components/pages/home-three/home-three.component';
 import { HomeTwoComponent } from './components/pages/home-two/home-two.component';
 import { LoginComponent } from './components/pages/login/login.component';
-import { MessageComponent } from './components/pages/message/message.component';
 import { RegisterComponent } from './components/pages/register/register.component';
 import { ResumeDetailsComponent } from './components/pages/resume-details/resume-details.component';
 import { PuppyDetailsComponent } from './components/pages/puppy-details/puppy-details.component';
 import { PuppyListComponent } from './components/pages/puppy-list/puppy-list.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { PuppyEditComponent } from './components/pages/puppy-edit/puppy-edit.component';
+import { MessagesComponent } from './components/pages/messages/messages.component';
 
 const routes: Routes = [
 
@@ -33,7 +33,7 @@ const routes: Routes = [
         children:[
             {path: 'puppy-edit', component: PuppyEditComponent},
             {path: 'single-resume', component: ResumeDetailsComponent},
-            {path: 'message', component: MessageComponent},
+            {path: 'message', component: MessagesComponent},
             {path: 'mypuppies', component: MypuppiesComponent},
             {path: 'coming-soon', component: ComingSoonComponent},
             {path: 'error', component: ErrorComponent},

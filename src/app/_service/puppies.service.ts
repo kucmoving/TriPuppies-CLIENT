@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { PaginatedResult } from '../_models/pagination';
 import { Puppy } from '../_models/puppy';
 import { UserParams } from '../_models/userParams';
+import { getPaginatedResult, getPaginationHeaders } from './paginationHepler';
 
 @Injectable({
   providedIn: 'root'
@@ -17,36 +18,20 @@ export class PuppiesService {
 
   constructor(private http: HttpClient) { }
 
+  //put pageNumber,pageSize as parameters
   getPuppies(userParams: UserParams){
-    let params = this.getPaginationHeaders(userParams.pageNumber, userParams.pageSize);
+    let params = getPaginationHeaders(userParams.pageNumber, userParams.pageSize);
     if (userParams != null){
     params = params.append('minExp', userParams.minExp.toString());
     params = params.append('maxExp', userParams.maxExp.toString());
     params = params.append('role', userParams.role);
     params = params.append('orderBy', userParams.orderBy);
     }
-    return this.getPaginatedResult<Puppy[]>(this.baseUrl + 'user', params);
+    return getPaginatedResult<Puppy[]>(this.baseUrl + 'user', params, this.http);
   }
 
-  private getPaginatedResult<T>(url, params) {
-    const paginatedResult: PaginatedResult<T> = new PaginatedResult<T>();
-    return this.http.get<T>(url, { observe: 'response', params }).pipe(
-      map(response => {
-        paginatedResult.result = response.body;
-        if (response.headers.get('Pagination') !== null) {
-          paginatedResult.pagination = JSON.parse(response.headers.get('Pagination'));
-        }
-        return paginatedResult;
-      })
-    );
-  }
 
-  private getPaginationHeaders(pageNumber:number, pageSize:number){
-    let params = new HttpParams();
-    params = params.append("pageNumber", pageNumber.toString());
-    params = params.append("pageSize", pageSize.toString());
-    return params;
-  }
+
 
   getPuppy(username: string){
     return this.http.get<any>(this.baseUrl + 'User/' + username);

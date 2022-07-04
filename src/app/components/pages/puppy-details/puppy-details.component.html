@@ -19,7 +19,7 @@
                             </h2>
                             <ul>
                                 <li><i class="flaticon-send"></i>{{puppy.region}}
-                                    <li><i class="bx bx-time"></i>{{puppy.lastTime}}
+                                    <li><i class="bx bx-time"></i>{{puppy.lastTime | timeago}}
 
                             </ul>
                         </div>
@@ -117,13 +117,8 @@
                     </div>
 
                     <div class="download widget-item">
-                        <a routerLink="/">Download CV</a>
-                        <a class="right" routerLink="/contact">Contact Me</a>
+                        <app-puppy-messages [puppy]="puppy"></app-puppy-messages>
                     </div>
-
-
-
-
                 </div>
             </div>
         </div>

@@ -9,7 +9,6 @@ import { PreloaderComponent } from './components/common/preloader/preloader.comp
 import { LoginComponent } from './components/pages/login/login.component';
 import { RegisterComponent } from './components/pages/register/register.component';
 import { ResumeDetailsComponent } from './components/pages/resume-details/resume-details.component';
-import { MessageComponent } from './components/pages/message/message.component';
 import { ComingSoonComponent } from './components/pages/coming-soon/coming-soon.component';
 import { ErrorComponent } from './components/pages/error/error.component';
 import { AboutComponent } from './components/pages/about/about.component';
@@ -32,6 +31,8 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import {TimeagoModule} from 'ngx-timeago';
 import { MypuppiesComponent } from './components/pages/mypuppies/mypuppies.component';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { MessagesComponent } from './components/pages/messages/messages.component';
+import { MemberMessagesComponent } from './components/pages/puppy-messages/puppy-messages.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,6 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
     RegisterComponent,
     PuppyEditComponent,
     ResumeDetailsComponent,
-    MessageComponent,
     MypuppiesComponent,
     ComingSoonComponent,
     ErrorComponent,
@@ -57,6 +57,8 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
     NavbarStyleTwoComponent,
     NavbarStyleThreeComponent,
     FooterStyleTwoComponent,
+    MessagesComponent,
+    MemberMessagesComponent
 ],
 
   imports: [

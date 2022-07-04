@@ -22,6 +22,7 @@ export class PuppyDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.loadPuppy();
 
+
     this.galleryOptions = [
       {
         width:'500px',

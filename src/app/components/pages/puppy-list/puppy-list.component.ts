@@ -28,7 +28,6 @@ export class PuppyListComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadPuppies();
-
   }
 
   loadPuppies(){
@@ -44,7 +43,6 @@ export class PuppyListComponent implements OnInit {
     this.userParams = new UserParams(this.user);
     this.loadPuppies();
   }
-
 
   pageChanged(event:any){
     this.userParams.pageNumber = event.page;
