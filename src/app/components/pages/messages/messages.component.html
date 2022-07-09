@@ -9,17 +9,14 @@
         <div class="d-table-cell">
             <div class="container">
                 <div class="title-item">
-                    <h2>Pricing Plans</h2>
+                    <h2>Message</h2>
                     <ul>
                         <li>
-                            <img
-                                src="assets/img/home-three/title-img-two.png"
-                                alt="Image"
-                            />
+
                             <a routerLink="/">Home</a>
                         </li>
                         <li><span>/</span></li>
-                        <li>Pricing Plans</li>
+                        <li>Message</li>
                     </ul>
                 </div>
             </div>
@@ -28,11 +25,13 @@
 </div>
 <!-- End Page Title -->
 
-<!-- Pricing -->
 <div class="person-details-area ptb-100">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-12">
+            <div class="col-lg-12 col-md-12">
+                <div class="row" *ngIf="messages?.length === 0">
+                    <h3>You have no messages.</h3>
+                </div>
 
                     <div class="btn-group" name="container">
                         <button
@@ -62,9 +61,7 @@
                     </div>
                 </div>
 
-                <div class="row" *ngIf="messages?.length === 0">
-                    <h3>No messages</h3>
-                </div>
+
 
                 <div class="row" *ngIf="messages?.length > 0">
                     <table class="table table-hover" style="cursor: pointer">
@@ -88,13 +85,13 @@
                             <td>
                                 <div *ngIf="container === 'Outbox'">
                                     <img class="img-circle me-2"
-                                    src="{{ message.recipientPhotoUrl || './assets/user.png'}}"
+                                    src="{{ message.recipientPhotoUrl || './assets/user.jpg'}}"
                                     alt="{{ message.recipientName }}"/>
                                     <strong>{{message.recipientName | titlecase}}</strong></div>
 
                                 <div *ngIf="container !== 'Outbox'">
                                     <img class="img-circle me-2"
-                                    src="{{message.senderPhotoUrl || './assets/user.png'}}"
+                                    src="{{message.senderPhotoUrl || './assets/user.jpg'}}"
                                         alt="{{ message.senderName }}"/>
                                     <strong>{{message.senderName | titlecase}}</strong>
                                 </div>
@@ -139,7 +136,6 @@
                     </pagination>
                 </div>
 
-                <!-- End Pricing -->
 
                 <!-- Footer -->
                 <app-footer-style-two></app-footer-style-two>

@@ -12,14 +12,13 @@
         <div class="d-table-cell">
             <div class="container">
                 <div class="title-item">
-                    <h2>Your Profile</h2>
+                    <h2>My Profile</h2>
                     <ul>
                         <li>
-                            <img src="assets/img/home-three/title-img-two.png" alt="Image">
                             <a routerLink="/">Home</a>
                         </li>
                         <li><span>/</span></li>
-                        <li>Dashboard</li>
+                        <li>My Profile</li>
                     </ul>
                 </div>
             </div>
@@ -36,22 +35,13 @@
                 <div class="profile-item">
                     <img src="{{puppy.photoUrl || './assets/user.jpg'}}" alt="Dashboard"
 
-
-                    style="border-radius: 1%;"  width="300px" height="200px" >
+                    style="border-radius: 1%;"  width="300px" height="auto" >
                     <h2>{{puppy.userName}}({{puppy.nickName}})</h2>
                     <span>{{puppy.region}}</span>
                 </div>
 
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class='bx bx-user'></i> My Profile</a>
-
-                    <a class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
-                        <div class="profile-list">
-                            <i class='bx bxs-inbox'></i>
-                            Applied Jobs
-                        </div>
-                    </a>
-
                     <a class="nav-link" id="v-pills-photos-tab" data-bs-toggle="pill" href="#v-pills-photos" role="tab" aria-controls="v-pills-photos" aria-selected="false">
                         <div class="profile-list">
                             <i class='bx bxs-inbox'></i>
@@ -59,9 +49,6 @@
                         </div>
                     </a>
 
-                    <a routerLink="/single-resume">
-                        <div class="profile-list"><i class='bx bx-note'></i> My Resume</div>
-                    </a>
 
                     <a  routerLink="/login">
                         <div class="profile-list"><i class='bx bx-log-out'></i> Logout</div>
@@ -77,10 +64,8 @@
                 <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                         <div class="profile-content">
-                            <form #editForm="ngForm" id="editForm" (ngSubmit)="updateMember()">
+                            <form #editForm="ngForm" id="editForm" (ngSubmit)="updatePuppy()">
                                 <div class="profile-content-inner">
-                                    <h2>Basic Info</h2>
-
                                     <div class="row">
                                         <div class="col-lg-6 col-md-12">
                                             <div class="form-group">
@@ -100,9 +85,9 @@
 
                                         <div class="col-lg-6 col-md-12">
                                             <div class="form-group">
-                                                <label>Gender:</label>
-                                                <input type="text" class="form-control"
-                                                [(ngModel)]="puppy.gender" name="gender" >
+                                                <label>Experience:</label>
+                                                <input type="number" class="form-control"
+                                                [(ngModel)]="puppy.experience" name="experience" >
                                             </div>
                                         </div>
 
@@ -113,12 +98,7 @@
                                                 [(ngModel)]="puppy.region" name="region" >
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
 
-                                <div class="profile-content-inner">
-                                    <h2>Travel Related</h2>
-                                    <div class="row">
                                         <div class="col-lg-6 col-md-12">
                                             <div class="form-group">
                                                 <label>Role:</label>
@@ -142,60 +122,14 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                    <button [disabled]="!editForm.dirty" form="editForm" (ngSubmit)="updatePuppy()" type="submit" class="btn dashboard-btn">Save Your Information</button>
 
-                                <button [disabled]="!editForm.dirty" form="editForm" (ngSubmit)="updatePuppy()" type="submit" class="btn dashboard-btn">Save Your Information</button>
+                                </div>
                             </form>
                         </div>
                     </div>
 
 
-
-<!--2nd-->
-                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-
-                        <div class="employer-item">
-                            <a routerLink="/job-details">
-                                <img src="assets/img/home-one/job1.png" alt="Employer">
-                                <h3>Product Designer</h3>
-                                <ul>
-                                    <li><i class="flaticon-send"></i> Los Angeles, CS, USA</li>
-                                    <li>5 months ago</li>
-                                </ul>
-                                <p>We are Looking for a skilled Ul/UX designer amet conscu adiing elitsed do eusmod tempor</p>
-                                <span class="span-one">Accounting</span>
-                                <span class="span-two">FULL TIME</span>
-                            </a>
-                        </div>
-
-                        <div class="employer-item">
-                            <a routerLink="/job-details">
-                                <img src="assets/img/home-one/job2.png" alt="Employer">
-                                <h3>Sr. Shopify Developer</h3>
-                                <ul>
-                                    <li><i class="flaticon-send"></i> Houston, TX, USA</li>
-                                    <li>4 months ago</li>
-                                </ul>
-                                <p>Responsible for managing skilled Ul/UX designer amet conscu adiing elitsed do eusmod</p>
-                                <span class="span-one">Accounting</span>
-                                <span class="span-two two">FULL TIME</span>
-                            </a>
-                        </div>
-
-                        <div class="employer-item">
-                            <a routerLink="/job-details">
-                                <img src="assets/img/home-one/job3.png" alt="Employer">
-                                <h3>Tax Manager</h3>
-                                <ul>
-                                    <li><i class="flaticon-send"></i> Ho Chi Minh City, Vietnam</li>
-                                    <li>6 months ago</li>
-                                </ul>
-                                <p>International collaborative a skilled Ul/UX designer amet conscu adiing elitsed do eusmod</p>
-                                <span class="span-one two">Broardcasting</span>
-                                <span class="span-two three">FREELANCER</span>
-                            </a>
-                        </div>
-                    </div>
 
 
                     <!--3tab-->
@@ -221,7 +155,7 @@
                                   </div>
 
                             <div class="col-4" *ngFor="let photo of puppy.photos">
-                              <img src="{{photo.url}}" alt="{{photo.url}}" width="300px" height="200px">
+                              <img src="{{photo.url}}" alt="{{photo.url}}" width="300px" height="auto">
                               <div class="text-center">
                                 <div class="btn-group d-flex" role="group">
                                 <button [disabled]="photo.isMain" class="btn btn-primary w-100" (click)="setMainPhoto(photo)">Main</button>

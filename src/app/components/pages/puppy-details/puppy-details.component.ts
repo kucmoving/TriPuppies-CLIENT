@@ -56,7 +56,7 @@ export class PuppyDetailsComponent implements OnInit {
 
   addFollow(puppy:Puppy) {
     this.puppiesService.addFollow(puppy.userName).subscribe(()=>{
-      this.toastr.success('You have followed' + puppy.nickName);
+      this.toastr.success('You have followed ' + puppy.nickName);
     }, error => {
         this.toastr.error('Followed already');
       })

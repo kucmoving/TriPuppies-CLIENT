@@ -40,11 +40,16 @@ export class PuppyEditComponent implements OnInit {
       this.puppy = puppy;
     }))
   }
-  updateMember(){
-    console.log(this.puppy);
-      this.toastr.success("profile update");
-      this.editForm.reset(this.puppy);
-  }
+
+  updatePuppy(){
+    this.puppiesService.updatePuppy(this.puppy).subscribe(() => {
+        console.log(this.puppy);
+        this.editForm.reset(this.puppy);
+        this.toastr.success("profile update");
+        setTimeout(()=>{ location.reload() }, 2000);
+    })
+}
+
   getFile(event: any){
     this.file = event.target.files[0];
     console.log("file", this.file)
@@ -55,7 +60,7 @@ export class PuppyEditComponent implements OnInit {
     formData.set("file", this.file);
     return this.http.post(this.baseUrl + "User/add-photo", formData).subscribe((response) => {
       this.toastr.success("photo upload. will be redirected to homepage after 5 seconds");
-      setTimeout(()=>{ location.reload() }, 5000)
+      setTimeout(()=>{ location.reload() }, 2000)
       //要F5, 同埋loading效果
     })
   }

@@ -33,6 +33,8 @@ import { MypuppiesComponent } from './components/pages/mypuppies/mypuppies.compo
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { MessagesComponent } from './components/pages/messages/messages.component';
 import { MemberMessagesComponent } from './components/pages/puppy-messages/puppy-messages.component';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { LoadingInterceptor } from './_interceptor/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,8 @@ import { MemberMessagesComponent } from './components/pages/puppy-messages/puppy
     NavbarStyleThreeComponent,
     FooterStyleTwoComponent,
     MessagesComponent,
-    MemberMessagesComponent
+    MemberMessagesComponent,
+
 ],
 
   imports: [
@@ -66,19 +69,21 @@ import { MemberMessagesComponent } from './components/pages/puppy-messages/puppy
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ToastrModule.forRoot({
-        positionClass:'toast-top-right'
-      }),
+    ToastrModule.forRoot({ positionClass: 'toast-bottom-right' }),
+
       NgxGalleryModule,
       BrowserAnimationsModule,
       ReactiveFormsModule,
       PaginationModule.forRoot(),
       TimeagoModule.forRoot(),
-      ButtonsModule.forRoot()
+      ButtonsModule.forRoot(),
+      NgxSpinnerModule
   ],
 
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
-    {provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => MypuppiesComponent) ,multi: true}],
+    {provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => MypuppiesComponent) ,multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor,multi:true}],
+
   bootstrap: [AppComponent]
 })
 

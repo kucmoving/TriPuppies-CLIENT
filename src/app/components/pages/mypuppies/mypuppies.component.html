@@ -8,19 +8,16 @@
         <div class="d-table-cell">
             <div class="container">
                 <div class="title-item">
-                    <h2>FAQ</h2>
+                    <h2>My Puppies</h2>
                     <ul>
                         <li>
-                            <img
-                                src="assets/img/home-three/title-img-two.png"
-                                alt="Image"
-                            />
+
                             <a href="index.html">Home</a>
                         </li>
                         <li>
                             <span>/</span>
                         </li>
-                        <li>FAQ</li>
+                        <li>My Puppies</li>
                     </ul>
                 </div>
             </div>
@@ -31,7 +28,7 @@
 
 <!-- FAQ -->
 
-<div class="text-center mt-3">
+<div class="text-center pt-100">
     <h2>
         {{
             predicate === "following"
@@ -40,7 +37,7 @@
         }}
     </h2>
 </div>
-<div class="container mt-3">
+<div class="container">
     <div class="d-flex">
         <div class="btn-group col-lg-12 col-md-12" name="predicate">
             <button
@@ -70,11 +67,10 @@
                 <div class="col-lg-6 col-md-6" *ngFor="let puppy of puppies">
                     <div class="candidate-item two">
                         <div class="left">
-                            <h4>
-                                <a routerLink="/candidate-details">{{
-                                    puppy.nickName
-                                }}</a>
-                            </h4>
+
+                            <h3><a routerLink="/puppy-list/{{puppy.username}}">{{puppy.nickName}}</a></h3>
+
+
                             <h4>{{ puppy.nickname }}</h4>
                             <ul class="experience">
                                 <li>
@@ -97,20 +93,15 @@
                                 </li>
                             </ul>
                             <div class="cmn-link">
-                                <a routerLink="/single-resume"
-                                    ><i class="flaticon-right-arrow one"></i>
-                                    View Resume
-                                    <i class="flaticon-right-arrow two"></i
-                                ></a>
+                                <a routerLink="/puppy-list/{{puppy.username}}"><i class="flaticon-right-arrow one"></i> View Resume <i class="flaticon-right-arrow two"></i></a>
                             </div>
                         </div>
                         <img
-                            src="{{ puppy.photoUrl }}"
+                            src="{{ puppy.photoUrl || './assets/user.jpg'}}"
                             alt="{{ puppy.nickName }}"
                         />
                     </div>
                 </div>
-
     <!-- End FAQ -->
 
     <!-- Footer -->

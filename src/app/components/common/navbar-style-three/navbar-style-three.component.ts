@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from 'src/app/_service/account.service';
 
 @Component({
   selector: 'app-navbar-style-three',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarStyleThreeComponent implements OnInit {
 
-  constructor() { }
+    model: any={};
+    loggedIn: boolean = false;
+
+  constructor(public accountService:AccountService) { }
 
   ngOnInit(): void {
+    this.getCurrentUser();
   }
 
+  logout() {
+    this.accountService.logout();
+    this.loggedIn = false;
+  }
+  getCurrentUser(){
+    this.accountService.currentUser$.subscribe(user => {
+      this.loggedIn = !!user;
+    }, error => {
+      console.log(error);
+    })
+  }
 }

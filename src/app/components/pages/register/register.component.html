@@ -57,10 +57,10 @@
                             <div class="mt-4 mb-4" >
                                 <label style="margin-right: 10px;">Gender: </label>
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" value='male' formControlName='gender'> Male
+                                    <input class="form-check-input" type="radio" value='Male' formControlName='gender'> Male
                                 </label>
                                 <label class="form-check-label">
-                                    <input class="form-check-input ms-2" type="radio" value='female' formControlName='gender' > Female
+                                    <input class="form-check-input ms-2" type="radio" value='Female' formControlName='gender' > Female
                                 </label>
                             </div>
 
@@ -77,7 +77,7 @@
                             <div class="mb-4">
                                 <label style="margin-right: 10px;">Prefer Style: </label>
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" value='male' formControlName='preferstyle'> Leisure
+                                    <input class="form-check-input" type="radio" value='Leisure' formControlName='preferstyle'> Leisure
                                 </label>
                                 <label class="form-check-label">
                                     <input type="radio" value='Special Interest' formControlName='preferstyle' class="form-check-input ms-3"> Special Interest
@@ -86,9 +86,10 @@
                                     <input type="radio" value='Business' formControlName='preferstyle' class="form-check-input ms-3"> Business
                                 </label>
                             </div>
-
-                         <!---->   <p>Form value: {{registerForm.value | json}}</p>
+<!--
+                            <p>Form value: {{registerForm.value | json}}</p>
                             <p>Form value: {{registerForm.status | json}}</p>
+-->
 
 
                             <button [disabled]='!registerForm.valid' type="submit" class="btn">Register Here</button>
