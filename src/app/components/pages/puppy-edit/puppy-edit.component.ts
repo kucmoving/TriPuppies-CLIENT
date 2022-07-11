@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Puppy } from 'src/app/_models/puppy';
 import { User } from 'src/app/_models/user';
 import { AccountService } from 'src/app/_service/account.service';
@@ -23,6 +23,12 @@ export class PuppyEditComponent implements OnInit {
     user: User;
     file : any;
     @ViewChild('editForm') editForm:NgForm;
+    @HostListener('window:beforeunload', ['$event']) unloadNotifaction($event: any){
+        if (this.editForm.dirty) {
+          $event.returnValue = true;
+        }
+      }
+
 
   constructor(private accountService: AccountService, private puppiesService: PuppiesService
     ,private toastr: ToastrService, private http : HttpClient, private router: Router) {

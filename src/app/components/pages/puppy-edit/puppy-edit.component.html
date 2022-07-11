@@ -122,6 +122,10 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="alert alert-warning" *ngIf="editForm.dirty">
+                                        <strong>Information: </strong> You have made changes.  Any unsaved changes will be lost
+                                    </div>
+
                                     <button [disabled]="!editForm.dirty" form="editForm" (ngSubmit)="updatePuppy()" type="submit" class="btn dashboard-btn">Save Your Information</button>
 
                                 </div>

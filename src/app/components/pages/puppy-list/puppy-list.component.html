@@ -143,12 +143,14 @@ Search A Puppy
                                 name="orderBy"
                                 class="btn btn-primary"
                                 [(ngModel)]="userParams.orderBy"
+                                btnRadio='lastActive'
                                 (click)="loadPuppies()">Last Active</button>
 
                                 <button
                                 name="orderBy"
                                 class="btn btn-danger"
                                 [(ngModel)]="userParams.orderBy"
+                                btnRadio='created'
                                 (click)="loadPuppies()">Newest Puppies</button>
                             </div>
                         </div>
@@ -157,16 +159,7 @@ Search A Puppy
                 <div class="col-sm-6 col-lg-6">
                     <div class="right">
                         <ul>
-                            <li>
-                                <a href="#">
-                                    <i class='bx bx-dots-horizontal'></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class='bx bx-menu'></i>
-                                </a>
-                            </li>
+
                         </ul>
                     </div>
                 </div>

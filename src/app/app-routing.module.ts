@@ -16,6 +16,7 @@ import { PuppyListComponent } from './components/pages/puppy-list/puppy-list.com
 import { AuthGuard } from './_guards/auth.guard';
 import { PuppyEditComponent } from './components/pages/puppy-edit/puppy-edit.component';
 import { MessagesComponent } from './components/pages/messages/messages.component';
+import { PreventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.guard';
 
 const routes: Routes = [
 
@@ -31,6 +32,7 @@ const routes: Routes = [
         runGuardsAndResolvers: "always",
         canActivate: [AuthGuard],
         children:[
+            {path: 'puppy-edit', component: PuppyEditComponent, canDeactivate:[PreventUnsavedChangesGuard]},
             {path: 'puppy-edit', component: PuppyEditComponent},
             {path: 'single-resume', component: ResumeDetailsComponent},
             {path: 'message', component: MessagesComponent},
@@ -39,6 +41,7 @@ const routes: Routes = [
             {path: 'error', component: ErrorComponent},
             {path: 'puppy-list', component: PuppyListComponent},
             {path: 'puppy-list/:username', component: PuppyDetailsComponent}
+
         ]
     },
     {path: '**', component: ErrorComponent, pathMatch: "full"},];
