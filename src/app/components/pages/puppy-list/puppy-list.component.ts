@@ -33,9 +33,9 @@ export class PuppyListComponent implements OnInit {
   loadPuppies(){
     this.puppiesService.getPuppies(this.userParams).subscribe(response=>{
       this.puppies = response.result;
-      console.log(response.result)
-      console.log(this.puppies)
-      console.log(this.user)
+   //   console.log(response.result)
+   //   console.log(this.puppies)
+   //   console.log(this.user)
       this.pagination = response.pagination;
     })
   }

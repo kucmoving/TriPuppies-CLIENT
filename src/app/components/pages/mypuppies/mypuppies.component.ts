@@ -21,7 +21,7 @@ export class MypuppiesComponent implements OnInit {
   loadFollow(){
     this.puppiesService.getFollow(this.predicate).subscribe(response => {
       this.puppies = response;
-      console.log(this.puppies)
+    //  console.log(this.puppies)
     })
   }
 }

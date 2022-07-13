@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    apiUrl : "https://localhost:7141/api/"
+    apiUrl : "https://tripuppiesapi.azurewebsites.net/api/"
   };
 
 

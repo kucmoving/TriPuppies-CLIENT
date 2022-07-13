@@ -38,7 +38,7 @@ export class PuppyEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadPuppy();
-    console.log(this.puppy);
+   // console.log(this.puppy);
   }
 
   loadPuppy(){
@@ -49,7 +49,7 @@ export class PuppyEditComponent implements OnInit {
 
   updatePuppy(){
     this.puppiesService.updatePuppy(this.puppy).subscribe(() => {
-        console.log(this.puppy);
+    //    console.log(this.puppy);
         this.editForm.reset(this.puppy);
         this.toastr.success("profile update");
         setTimeout(()=>{ location.reload() }, 2000);
@@ -58,7 +58,7 @@ export class PuppyEditComponent implements OnInit {
 
   getFile(event: any){
     this.file = event.target.files[0];
-    console.log("file", this.file)
+   // console.log("file", this.file)
   };
 
   uploadPhoto(){

@@ -86,10 +86,17 @@
                                     <input type="radio" value='Business' formControlName='preferstyle' class="form-check-input ms-3"> Business
                                 </label>
                             </div>
-<!--
+
                             <p>Form value: {{registerForm.value | json}}</p>
                             <p>Form value: {{registerForm.status | json}}</p>
--->
+
+                            <div class="row" *ngIf="validationErrors.length > 0">
+                                <ul class="text-danger">
+                                    <li *ngFor="let error of validationErrors">
+                                        {{error.error}}
+                                    </li>
+                                </ul>
+                            </div>
 
 
                             <button [disabled]='!registerForm.valid' type="submit" class="btn">Register Here</button>

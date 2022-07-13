@@ -20,13 +20,13 @@ export class MemberMessagesComponent implements OnInit {
 
     ngOnInit(): void {
       this.loadMessages();
-      console.log(this.puppy)
+   //   console.log(this.puppy)
     }
 
     loadMessages(){
       this.messageService.getMessageThread(this.puppy.userName).subscribe(messages=>{
         this.messages = messages;
-        console.log(this.messages)
+    //    console.log(this.messages)
 
       })
     }

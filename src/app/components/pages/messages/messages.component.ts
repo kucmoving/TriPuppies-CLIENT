@@ -20,7 +20,7 @@ export class MessagesComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadMessages();
-    console.log(this.messages);
+  //  console.log(this.messages);
   }
 
   loadMessages(){
@@ -28,8 +28,8 @@ export class MessagesComponent implements OnInit {
     this.messageService.getMessages(this.pageNumber, this.pageSize, this.container)
     .subscribe(response =>{
       this.messages =response.result;
-      console.log(response);
-      console.log(response.result);
+   //   console.log(response);
+   //   console.log(response.result);
 
       this.pagination = response.pagination;
       this.loading = false;

@@ -46,6 +46,7 @@ export class RegisterComponent implements OnInit {
         this.router.navigateByUrl('/puppy-list');
     },error => {
         this.validationErrors = error;
+        this.toastr.error(error.error)
     })
 }
 }
