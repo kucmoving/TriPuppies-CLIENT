@@ -19,7 +19,7 @@ export class PuppyListComponent implements OnInit {
   pagination: Pagination;
   userParams : UserParams;
   user: User;
-  roleList = [{value:'traveller', display:'Traveller'}, {value: 'guide', display:'Guide'}];
+  roleList = [{value:'Traveller', display:'Traveller'}, {value: 'Guide', display:'Guide'}];
 
   constructor(private puppiesService: PuppiesService, private accountService: AccountService) {
     this.accountService.currentUser$.pipe(take(1)).subscribe(user => {
