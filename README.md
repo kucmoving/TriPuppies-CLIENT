@@ -1,4 +1,4 @@
-Introduction
+<h2>Introduction</h2>
 
 [Tripuppies](https://tricli.azurewebsites.net/) is a social media for travellers and guides. This website allows users to update their personal information, search for others by specific criteria and communicate with their match(follow and message).
 
@@ -29,7 +29,7 @@ Introduction
 * for api folder(make sure in the folder) ```$dotnet watch run```
 
 5. API Key
-* Register a account in [Cloundinary](https://cloudinary.com/)
+* Register an account in [Cloundinary](https://cloudinary.com/)
 * Input Secret key and code in AppSettings.json
 
 
@@ -37,68 +37,31 @@ Introduction
 
 Here are some elements i have learnt after this project:<br>
 
-Authuentication
-1. Role management<br>
-By using Identity core, we can set the user as a particular role as a simple user, manager or even admin. Although users are in the same page, anonymous 
-are restricted to access information but admin are authorized to edit and delete any events.
+1. Deep dive in many to many relationship
+* Many to many relationship is quite confusing when we are creating table but we can have a better naming in poco or draw a database mind map before coding, just 
+like the picture below(not as same as the final product)
+*Follow function is the easier one that simply linking the relationship record
+*Message function is the harder one. First we should define more pocos with different data types in entity and understand that message thread is a list of message
+![image](https://user-images.githubusercontent.com/92262463/179399762-07dd47ca-79a5-40d6-bb44-eef6345efd05.png)
 
-2. Third Party Login<br>
-External login is an user friendly desgin. User can simply use third party to authorize the process but they do not need to enter any password.
-User will persist loggin because cookies will be stored in the browser until logout or clearing cookies. Here are some main process:
+2. Angular Component Operation
+* Angular is a component framework with different files that can make the project easier to maintain. Angular is complicated because there are lots of files but developers can use the hotkeys in vs code to deal with it.
+```ctrl + p (search file name), ctrl + f(search the code)``` 
 
-* Install third party packages in Nuget 
-* Sign into the third party platform and put the Oauth ID and secret into program.cs
-```builder.Services.AddAuthentication()
-.AddFacebook(options =>
-{
-    options.AppId = "";
-    options.AppSecret = "";
-})
-.AddGoogle(options =>
-{
-    options.ClientId = "";
-    options.ClientSecret = "";
-});
-```
-* input your redirect url in third party platform 
-* Tutorials: https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/?view=aspnetcore-6.0&tabs=visual-studio
+3. Debugging between frontend and backend
+* Debugging becomes interesting. When i faces a bug, i identify the root cause of the problem by testing api in swagger. If backend function properly, i will move to Chrome console log and network to see how the data is passing. Generally, bug happens because of variable naming, datatypes and version conflict.
 
-3. Email Confirmation and password reset<br>
-Email Confirmation is another way for user to login easily but you should be care that such emails are generally regarded as junk mails or blocked by some providers.
-Sendgird and mailjet are the platforms that allow developers to add mailing function in thier web application. To do this:
+4. Azure deployment
+* Because the project is separtion of frontend and backend. I have to upload three parts of my project to azure and connect them together. To allow client side connect the api, we should set the cros in api app. To connect the server, we should modify the setting of firewall. It is recommand to install extension for your client app because some conflicts may happen in Azure deployment.
 
-* Register an account
-sendgird: https://sendgrid.com/
-mailjet: https://www.mailjet.com/
-
-* Put the id and secret into appsetting.json 
-```
-  "MailJet": {
-    "ApiKey": "",
-    "SecretKey": ""
-  }
-```
-
-Others
-1. Unit testing
-* Understand THE basic 3A principle and using Fluent Assertions And FakeItEasy
-
-2. External Api Fetching
-* Connect to an external Api and interact with database 
-[Ipinfo](https://ipinfo.io/)
-
-3. Basic CRUD operation
-* The app allows users to create events, post photo, edit information and delete their items.
 
 Future Development 
-1. git controlling 
-* I have very basic concept with git control at first and face merge conflict when i am making the project. I should not use ```git push --force``` in some previous folders that results my loss of record so i decide to upload a new folder.
-the previous project record
-https://github.com/kucmoving/PetCafe-Remake-
+1. External Api Google map
+* Receving more user information can make the application better user experience.
 
+3. Ecommence element 
+* Adding stripe.js 
 
-2. Adding identity functionality
-* The project can be upgraded by adding the usage of QR Code or Multi-Factor Authentication.
 
 
 
