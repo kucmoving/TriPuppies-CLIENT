@@ -1,6 +1,6 @@
 <h2>
-Origin code history
-[Tripuppies-Client-Origin-1](https://github.com/kucmoving/Tripuppies-Client-Origin-1)
+Origin code history<br>
+[Tripuppies-Client-Origin-1]<br>(https://github.com/kucmoving/Tripuppies-Client-Origin-1)
 </h2>
 
 <h2>Introduction</h2>
