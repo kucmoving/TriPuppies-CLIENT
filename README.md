@@ -1,6 +1,10 @@
+<h2>
+Origin code history
+[Tripuppies-Client-Origin-1](https://github.com/kucmoving/Tripuppies-Client-Origin-1)
+</h2>
+
 <h2>Introduction</h2>
 
-[Origin code history](https://github.com/kucmoving/Tripuppies-Client-Origin-1)
 
 [Tripuppies](https://tricli.azurewebsites.net/) is a social media for travelers and guides. This website allows users to update their personal information, search for others by specific criteria and communicate with their match(follow and message).
 This website is built by bootstrap template, Angular, Asp.net Core, SQL and Azure deployment.
